@@ -5,6 +5,14 @@ import java.util.Random;
 public class Grid {
     private int width, height;
     private int numBombs;
+
+    /*
+        0: unmarked
+        -1: bomb
+        -2: question mark
+        -3: opened
+        > 0: num of bombs adjacent
+     */
     private int[][] grid;
 
     public Grid(int width, int height, int numBombs){
@@ -16,12 +24,7 @@ public class Grid {
     }
 
     public void initGrid(int numBombs) {
-        // Clear grid
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
-                grid[row][col] = 0;
-            }
-        }
+        this.clearGrid();
 
         // Set bombs
         Random random = new Random();
@@ -33,6 +36,15 @@ public class Grid {
             if (this.grid[row][col] != -1) {
                 this.grid[row][col] = -1;
                 n--;
+            }
+        }
+    }
+
+    public void clearGrid() {
+        // Clear grid
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
+                grid[row][col] = 0;
             }
         }
     }
@@ -51,5 +63,11 @@ public class Grid {
 
     public int getNumBombs() {
         return this.numBombs;
+    }
+
+    public void setQuestionMark(int row, int col) {
+        if (0 <= row && row < this.height && 0 <= col && col <= this.width) {
+            this.grid[row][col] = -2;
+        }
     }
 }
