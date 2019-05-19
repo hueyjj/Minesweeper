@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -148,7 +146,7 @@ public class Grid {
                         queue.add(new Location(loc.row - 1, loc.col - 1));
                     if (loc.col-1 >= 0 && this.grid[loc.row][loc.col-1] == 0)
                         queue.add(new Location(loc.row, loc.col-1));
-                    if (loc.row+1 < this.height && loc.col-1 >= 0 && this.grid[loc.row+1][col-1] == 0)
+                    if (loc.row+1 < this.height && loc.col-1 >= 0 && this.grid[loc.row+1][loc.col-1] == 0)
                         queue.add(new Location(loc.row+1, loc.col-1));
                     if (loc.row-1 >= 0 && this.grid[loc.row-1][loc.col] == 0)
                         queue.add(new Location(loc.row-1, loc.col));
@@ -174,12 +172,26 @@ public class Grid {
             if (this.grid[row][col] == -1) {
                 this.grid[row][col] = -2; // Found a bomb and marked
             } else {
-                this.grid[row][col] = -3; // Didn't find a bomb, but marking anyway...
+                this.grid[row][col] = -4; // Didn't find a bomb, but marking anyway...
             }
         }
     }
 
     public boolean hasLost() {
         return this.hasLost;
+    }
+
+    public boolean hasWon() {
+        boolean hasOpened = false;
+        int correctlyMarkedBombs = 0;
+        for (int row = 0; row < this.height; row++) {
+            for (int col = 0; col < this.width; col++) {
+                if (this.grid[row][col] == -2)
+                    correctlyMarkedBombs++;
+                else if (this.grid[row][col] == 0)
+                    hasOpened = true;
+            }
+        }
+        return hasOpened == false && correctlyMarkedBombs == this.numBombs;
     }
 }
