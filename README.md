@@ -1,3 +1,4 @@
+# Minesweeper
 Program name is Minesweeper. It is a small-console based minesweeper game.
 
 The main way to running this program will be through a console, and compiling should be done through the console or terminal as well.
@@ -11,43 +12,49 @@ the content of my Minesweeper.java into the IDE's Minesweeper.java, and do the s
 issues that IDEs usually come with.
 
 Three main files are included:
-    README.txt
-    Minesweeper.java
-    Grid.java
+- README.txt
+- Minesweeper.java
+- Grid.java
 
 Ten screenshots are included:
-    [1]HowToCompile.png
-    [2]HowToMakeANewGame.png
-    [3]HowTheGameLooksRunning.png
-    [4]OpenCommandPart1.png
-    [5]OpenCommandPart2.png
-    [6]MarkCommandPart1.png
-    [7]MarkCommandPart2.png
-    [8]QuitCommand.png
-    [9]UnixTimeshareExample1.png
-    [10]UnixTimeshareExample2.png
+- [1]HowToCompile.png
+- [2]HowToMakeANewGame.png
+- [3]HowTheGameLooksRunning.png
+- [4]OpenCommandPart1.png
+- [5]OpenCommandPart2.png
+- [6]MarkCommandPart1.png
+- [7]MarkCommandPart2.png
+- [8]QuitCommand.png
+- [9]UnixTimeshareExample1.png
+- [10]UnixTimeshareExample2.png
 
 To compile:
-    javac Minesweeper.java Grid.java
+```bash
+javac Minesweeper.java Grid.java
+```
 
 To run:
-    java Minesweeper
+```bash
+java Minesweeper
+```
 
 How to play (example):
-    Enter "o"
-    Enter 5
-    Enter 6
+```
+Enter "o"
+Enter 5
+Enter 6
 
-    This will "open" the spot at row 5 and column 6. If it's a bomb, you lose. If it's safe, then it the grid will change to reflect that.
+This will "open" the spot at row 5 and column 6. If it's a bomb, you lose. If it's safe, then it the grid will change to reflect that.
 
-    Enter "m"
-    Enter 3
-    Enter 2
-    
-    This will "mark" the spot that you think is a bomb.
+Enter "m"
+Enter 3
+Enter 2
 
-    Enter "q"
+This will "mark" the spot that you think is a bomb.
 
-    This will quit the game.
+Enter "q"
+
+This will quit the game.
+```
 
 To win, mark all the spots that have a bomb and open everything that isn't a bomb. Else, you lose.
